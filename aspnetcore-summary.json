@@ -54,11 +54,12 @@
       }
     ]
   },
+  "description": "Basic measurements of request handling using data from prometheus-net middleware",
   "editable": true,
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1569479623606,
+  "iteration": 1569567647889,
   "links": [],
   "panels": [
     {
@@ -370,7 +371,7 @@
       ],
       "timeFrom": null,
       "timeShift": null,
-      "title": "Request duration (controlled-handled only)",
+      "title": "Request duration (controller-handled requests only)",
       "tooltip": {
         "show": true,
         "showHistogram": false
@@ -491,7 +492,7 @@
       }
     }
   ],
-  "refresh": "1m",
+  "refresh": false,
   "schemaVersion": 19,
   "style": "dark",
   "tags": [],
@@ -562,7 +563,7 @@
     ]
   },
   "timezone": "",
-  "title": "prometheus-net - ASP.NET Core summary",
+  "title": "ASP.NET Core - controller summary (Prometheus)",
   "uid": "h1FE3PpWk",
-  "version": 19
+  "version": 22
 }
