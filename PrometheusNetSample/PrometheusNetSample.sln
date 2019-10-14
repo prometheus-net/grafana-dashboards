@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{5FFFC330-0E8C-429C-8F7C-AF76044DB029}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution items", "solution items", "{5B7DDBAC-1A6A-4D1B-A950-0AFF2834DF5A}"
+	ProjectSection(SolutionItems) = preProject
+		data\prometheus\config\prometheus.yml = data\prometheus\config\prometheus.yml
+	EndProjectSection
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PrometheusNetSample.WebApi", "PrometheusNetSample.WebApi\PrometheusNetSample.WebApi.csproj", "{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1}"
+EndProject
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{B99E73E3-3460-4E3C-9936-071FB58C0D19}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B99E73E3-3460-4E3C-9936-071FB58C0D19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B99E73E3-3460-4E3C-9936-071FB58C0D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B99E73E3-3460-4E3C-9936-071FB58C0D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B99E73E3-3460-4E3C-9936-071FB58C0D19}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E6EA01A8-1BB7-4314-9475-3204CD8BB2C1} = {5FFFC330-0E8C-429C-8F7C-AF76044DB029}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3AD263D3-2732-4A1A-B317-05A65D76965A}
+	EndGlobalSection
+EndGlobal

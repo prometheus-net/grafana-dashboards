@@ -52,7 +52,7 @@
   "gnetId": 10427,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1569832313518,
+  "iteration": 1571048542674,
   "links": [],
   "panels": [
     {
@@ -253,7 +253,7 @@
       ],
       "datasource": "${DS_PROMETHEUS}",
       "decimals": null,
-      "description": "Set \"instance\" and \"\"job\" in edit mode.",
+      "description": "",
       "format": "dateTimeAsIso",
       "gauge": {
         "maxValue": 100,
@@ -307,7 +307,7 @@
       "tableColumn": "",
       "targets": [
         {
-          "expr": "process_start_time_seconds{instance=\"prometheusnetgrafanadashboards.webapisample:80\",job=\"webapi\"} * 1000",
+          "expr": "process_start_time_seconds{instance =~ \"$instances\"} * 1000",
           "format": "time_series",
           "intervalFactor": 1,
           "legendFormat": "",
@@ -882,6 +882,28 @@
         "refresh": 2,
         "skipUrlSync": false,
         "type": "interval"
+      },
+      {
+        "allValue": null,
+        "current": {},
+        "datasource": "${DS_PROMETHEUS}",
+        "definition": "label_values(http_requests_received_total, instance)",
+        "hide": 0,
+        "includeAll": true,
+        "label": "instances",
+        "multi": true,
+        "name": "instances",
+        "options": [],
+        "query": "label_values(http_requests_received_total, instance)",
+        "refresh": 1,
+        "regex": "",
+        "skipUrlSync": false,
+        "sort": 1,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
@@ -917,5 +939,5 @@
   "timezone": "",
   "title": "prometheus-net",
   "uid": "zyAf4i4Zz",
-  "version": 2
+  "version": 4
 }
