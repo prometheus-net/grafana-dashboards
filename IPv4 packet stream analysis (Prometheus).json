@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1579684599198,
+  "iteration": 1579767310225,
   "links": [],
   "panels": [
     {
@@ -99,7 +99,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m])) by (to_type, protocol)",
+          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m]) * 8) by (to_type, protocol)",
           "legendFormat": "{{to_type}}/{{protocol}}",
           "refId": "A"
         }
@@ -124,7 +124,7 @@
       },
       "yaxes": [
         {
-          "format": "Bps",
+          "format": "bps",
           "label": null,
           "logBase": 1,
           "max": null,
@@ -198,7 +198,7 @@
           "pattern": "Value",
           "thresholds": [],
           "type": "number",
-          "unit": "Bps"
+          "unit": "bps"
         },
         {
           "alias": "Address",
@@ -219,7 +219,7 @@
       ],
       "targets": [
         {
-          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m])) by (from)",
+          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m]) * 8) by (from)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -285,7 +285,7 @@
           "pattern": "Value",
           "thresholds": [],
           "type": "number",
-          "unit": "Bps"
+          "unit": "bps"
         },
         {
           "alias": "Address",
@@ -306,7 +306,7 @@
       ],
       "targets": [
         {
-          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m])) by (to)",
+          "expr": "sum(irate(tzsp_observed_bytes_total{instance =~ \"$instances\", from =~ \"$from\", to =~ \"$to\", protocol =~ \"$protocol\"}[3m]) * 8) by (to)",
           "format": "table",
           "instant": true,
           "legendFormat": "",
@@ -456,5 +456,5 @@
   "timezone": "",
   "title": "IPv4 packet stream analysis (Prometheus)",
   "uid": "MXhNeNsZz",
-  "version": 5
+  "version": 6
 }
