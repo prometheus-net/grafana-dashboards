@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1579767310225,
+  "iteration": 1580113846157,
   "links": [],
   "panels": [
     {
@@ -160,8 +160,8 @@
       "pageSize": null,
       "showHeader": true,
       "sort": {
-        "col": 0,
-        "desc": true
+        "col": 1,
+        "desc": false
       },
       "styles": [
         {
@@ -247,8 +247,8 @@
       "pageSize": null,
       "showHeader": true,
       "sort": {
-        "col": 0,
-        "desc": true
+        "col": 1,
+        "desc": false
       },
       "styles": [
         {
@@ -298,7 +298,7 @@
           "dateFormat": "YYYY-MM-DD HH:mm:ss",
           "decimals": 2,
           "mappingType": 1,
-          "pattern": "from",
+          "pattern": "to",
           "thresholds": [],
           "type": "string",
           "unit": "short"
@@ -333,7 +333,7 @@
         "definition": "label_values(tzsp_observed_bytes_total, instance)",
         "hide": 0,
         "includeAll": false,
-        "label": "Instances",
+        "label": "Instance",
         "multi": false,
         "name": "instances",
         "options": [],
@@ -394,44 +394,25 @@
       },
       {
         "allValue": null,
-        "current": {
-          "selected": false,
-          "tags": [],
-          "text": "All",
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
+        "datasource": "${DS_PROMETHEUS-MEDIUM}",
+        "definition": "label_values(tzsp_observed_bytes_total{instance =~ \"$instances\"}, protocol)",
         "hide": 0,
         "includeAll": true,
         "label": "Protocols",
         "multi": true,
         "name": "protocol",
-        "options": [
-          {
-            "selected": true,
-            "text": "All",
-            "value": "$__all"
-          },
-          {
-            "selected": false,
-            "text": "tcp",
-            "value": "tcp"
-          },
-          {
-            "selected": false,
-            "text": "udp",
-            "value": "udp"
-          },
-          {
-            "selected": false,
-            "text": "unknown",
-            "value": "unknown"
-          }
-        ],
-        "query": "tcp,udp,unknown",
+        "options": [],
+        "query": "label_values(tzsp_observed_bytes_total{instance =~ \"$instances\"}, protocol)",
+        "refresh": 2,
+        "regex": "",
         "skipUrlSync": false,
-        "type": "custom"
+        "sort": 0,
+        "tagValuesQuery": "",
+        "tags": [],
+        "tagsQuery": "",
+        "type": "query",
+        "useTags": false
       }
     ]
   },
@@ -456,5 +437,5 @@
   "timezone": "",
   "title": "IPv4 packet stream analysis (Prometheus)",
   "uid": "MXhNeNsZz",
-  "version": 6
+  "version": 9
 }
