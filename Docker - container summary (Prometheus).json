@@ -14,7 +14,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "6.5.2"
+      "version": "6.6.1"
     },
     {
       "type": "panel",
@@ -53,7 +53,7 @@
   "gnetId": null,
   "graphTooltip": 0,
   "id": null,
-  "iteration": 1577176573423,
+  "iteration": 1584155958073,
   "links": [],
   "panels": [
     {
@@ -98,9 +98,9 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "increase(docker_container_cpu_used_total{instance =~ \"$instances\", name =~ \"$containers\"}[1m]) / increase(docker_container_cpu_capacity_total[1m])",
+          "expr": "(increase(docker_container_cpu_used_total{instance =~ \"$instances\", name =~ \"$containers\"}[30s]) / increase(docker_container_cpu_capacity_total[30s])) > 0 or (increase(docker_container_cpu_used_total{instance =~ \"$instances\", name =~ \"$containers\"}[1m]) / increase(docker_container_cpu_capacity_total[1m])) > 0 or (increase(docker_container_cpu_used_total{instance =~ \"$instances\", name =~ \"$containers\"}[3m]) / increase(docker_container_cpu_capacity_total[3m])) > 0 or (increase(docker_container_cpu_used_total{instance =~ \"$instances\", name =~ \"$containers\"}[5m]) / increase(docker_container_cpu_capacity_total[5m]))",
           "format": "time_series",
-          "intervalFactor": 2,
+          "intervalFactor": 1,
           "legendFormat": "{{instance}} / {{name}}",
           "refId": "A",
           "step": 60
@@ -262,6 +262,7 @@
       "styles": [
         {
           "alias": "Name",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -278,6 +279,7 @@
         },
         {
           "alias": "Uptime",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -294,6 +296,7 @@
         },
         {
           "alias": "Running?",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -313,6 +316,7 @@
         },
         {
           "alias": "Fail count",
+          "align": "auto",
           "colorMode": "cell",
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -331,7 +335,25 @@
           "unit": "short"
         },
         {
+          "alias": "Instance",
+          "align": "auto",
+          "colorMode": null,
+          "colors": [
+            "rgba(245, 54, 54, 0.9)",
+            "rgba(237, 129, 40, 0.89)",
+            "rgba(50, 172, 45, 0.97)"
+          ],
+          "dateFormat": "YYYY-MM-DD HH:mm:ss",
+          "decimals": 2,
+          "mappingType": 1,
+          "pattern": "instance",
+          "thresholds": [],
+          "type": "string",
+          "unit": "short"
+        },
+        {
           "alias": "",
+          "align": "auto",
           "colorMode": null,
           "colors": [
             "rgba(245, 54, 54, 0.9)",
@@ -591,7 +613,7 @@
     }
   ],
   "refresh": "1m",
-  "schemaVersion": 21,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -663,5 +685,5 @@
   "timezone": "",
   "title": "Docker - container summary (Prometheus)",
   "uid": "OLn-n3fWz",
-  "version": 7
+  "version": 9
 }
