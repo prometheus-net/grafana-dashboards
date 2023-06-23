@@ -1,4 +1,47 @@
 {
+  "__inputs": [
+    {
+      "name": "DS_PROMETHEUS",
+      "label": "Prometheus",
+      "description": "",
+      "type": "datasource",
+      "pluginId": "prometheus",
+      "pluginName": "Prometheus"
+    }
+  ],
+  "__elements": {},
+  "__requires": [
+    {
+      "type": "grafana",
+      "id": "grafana",
+      "name": "Grafana",
+      "version": "10.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "graph",
+      "name": "Graph (old)",
+      "version": ""
+    },
+    {
+      "type": "datasource",
+      "id": "prometheus",
+      "name": "Prometheus",
+      "version": "1.0.0"
+    },
+    {
+      "type": "panel",
+      "id": "stat",
+      "name": "Stat",
+      "version": ""
+    },
+    {
+      "type": "panel",
+      "id": "timeseries",
+      "name": "Time series",
+      "version": ""
+    }
+  ],
   "annotations": {
     "list": [
       {
@@ -25,15 +68,14 @@
   "fiscalYearStartMonth": 0,
   "gnetId": 10427,
   "graphTooltip": 0,
-  "id": 13,
-  "iteration": 1659028885976,
+  "id": null,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -42,6 +84,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "axisSoftMax": 0,
@@ -136,7 +180,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "multi",
@@ -147,7 +192,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "exemplar": false,
@@ -161,7 +206,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(process_working_set_bytes{instance =~ \"$instances\"})",
@@ -173,7 +218,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(process_private_memory_bytes{instance =~ \"$instances\"})",
@@ -185,7 +230,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(dotnet_total_memory_bytes{instance =~ \"$instances\"}) ",
@@ -197,7 +242,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(process_virtual_memory_bytes{instance =~ \"$instances\"}) ",
           "hide": true,
@@ -210,7 +255,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "fieldConfig": {
         "defaults": {
@@ -218,6 +263,8 @@
             "mode": "palette-classic"
           },
           "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
@@ -315,7 +362,8 @@
         "legend": {
           "calcs": [],
           "displayMode": "list",
-          "placement": "bottom"
+          "placement": "bottom",
+          "showLegend": true
         },
         "tooltip": {
           "mode": "single",
@@ -326,7 +374,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(rate(process_cpu_seconds_total{instance =~ \"$instances\"}[$__rate_interval])) by (instance)",
@@ -337,7 +385,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(process_open_handles)",
@@ -349,7 +397,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(process_num_threads)",
@@ -369,7 +417,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -405,7 +453,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -417,7 +465,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(increase(http_request_duration_seconds_bucket[$interval])) by (le)",
           "format": "heatmap",
@@ -464,7 +512,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "decimals": 0,
       "description": "",
@@ -502,7 +550,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -514,7 +562,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "expr": "sum(process_num_threads{instance =~ \"$instances\"}) by (instance)",
           "format": "time_series",
@@ -563,7 +611,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -601,7 +649,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -613,7 +661,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(http_requests_in_progress{instance =~ \"$instances\"}) by (instance)",
@@ -663,7 +711,7 @@
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "description": "",
       "fieldConfig": {
@@ -724,12 +772,12 @@
         "text": {},
         "textMode": "auto"
       },
-      "pluginVersion": "9.0.3",
+      "pluginVersion": "10.0.0",
       "targets": [
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "time() - process_start_time_seconds{instance =~ \"$instances\"}",
@@ -750,7 +798,7 @@
       "dashes": false,
       "datasource": {
         "type": "prometheus",
-        "uid": "OKg-wSDGk"
+        "uid": "${DS_PROMETHEUS}"
       },
       "decimals": 0,
       "description": "",
@@ -789,7 +837,7 @@
         "alertThreshold": true
       },
       "percentage": false,
-      "pluginVersion": "9.0.3",
+      "pluginVersion": "10.0.0",
       "pointradius": 2,
       "points": false,
       "renderer": "flot",
@@ -801,7 +849,7 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "OKg-wSDGk"
+            "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
           "expr": "sum(process_open_handles{instance =~ \"$instances\"}) by (instance)",
@@ -848,7 +896,7 @@
     }
   ],
   "refresh": "5s",
-  "schemaVersion": 36,
+  "schemaVersion": 38,
   "style": "dark",
   "tags": [
     "prometheus-net",
@@ -933,18 +981,10 @@
         "type": "interval"
       },
       {
-        "current": {
-          "selected": true,
-          "text": [
-            "All"
-          ],
-          "value": [
-            "$__all"
-          ]
-        },
+        "current": {},
         "datasource": {
           "type": "prometheus",
-          "uid": "OKg-wSDGk"
+          "uid": "${DS_PROMETHEUS}"
         },
         "definition": "label_values(http_requests_received_total, instance)",
         "hide": 0,
@@ -1000,6 +1040,6 @@
   "timezone": "",
   "title": "prometheus-net",
   "uid": "zyAf4i4Zz",
-  "version": 2,
+  "version": 5,
   "weekStart": ""
 }
